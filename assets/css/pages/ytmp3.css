@@ -1,0 +1,88 @@
+/* ============================================================
+   assets/css/pages/ytmp3.css — YT → MP3 (pakai .sp-* dari spoofer.css)
+   ============================================================ */
+
+.yt-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+.yt-links { flex: 1; min-height: 260px; }
+
+.yt-table-wrap { max-height: 440px; }
+.yt-table td { vertical-align: middle; }
+.yt-table td:nth-child(4) { width: 84px; }
+.yt-table td:last-child { width: 150px; }
+
+.yt-video a { display: block; color: var(--ds-text); font-weight: 500; text-decoration: none; word-break: break-word; }
+.yt-video a:hover { color: var(--gold); }
+.yt-meta { display: block; margin-top: 2px; font-family: var(--ds-mono); font-size: 11px; color: var(--ds-text-3); }
+
+.yt-dl { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; font-size: 12px; text-decoration: none; }
+
+.yt-zip { flex: 0 1 auto; padding: 0 20px; }
+
+/* ---------- Tools (yt-dlp + ffmpeg) ---------- */
+.yt-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  border: 1px solid var(--ds-line);
+  border-left: 3px solid var(--ds-line-2);
+  background: var(--ds-surface);
+}
+.yt-tools[data-state="ok"]      { border-left-color: var(--ds-ok); }
+.yt-tools[data-state="missing"] { border-left-color: var(--gold); }
+.yt-tools-status { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+.yt-tools-title { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ds-text-3); }
+.yt-tool { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ds-text); }
+.yt-tool i { width: 8px; height: 8px; border-radius: 50%; background: var(--ds-text-3); }
+.yt-tool b { font-family: var(--ds-mono); font-size: 11px; font-weight: 500; color: var(--ds-text-3); }
+.yt-tool.ok i   { background: var(--ds-ok); }
+.yt-tool.miss i { background: var(--ds-err); }
+.yt-tool.miss b { color: var(--ds-err); }
+.yt-tools-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.yt-tools-btn { flex: 0 0 auto; height: 34px; padding: 0 14px; font-size: 12px; }
+.yt-tools-msg { flex-basis: 100%; font-size: 13px; color: var(--ds-text-2); }
+.yt-tools-msg:empty { display: none; }
+.yt-tools-msg.err { color: var(--ds-err); }
+.yt-tools-help { flex-basis: 100%; margin-top: 0; }
+
+/* ---------- Upload ke Roblox ---------- */
+.yt-roblox { margin-bottom: 24px; }
+.yt-roblox .yt-desc a { color: var(--gold); }
+.yt-roblox-toggle { font-weight: 600; color: var(--ds-text); }
+.yt-roblox-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+.yt-roblox-grid > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.yt-roblox[data-off] .yt-roblox-grid { opacity: .55; }
+.yt-rbx { font-family: var(--ds-mono); font-size: 12px; }
+.yt-rbx a { color: var(--ds-text); text-decoration: none; }
+.yt-rbx a:hover { color: var(--gold); }
+.yt-ids { display: flex; flex-direction: column; gap: 8px; }
+.yt-grant-auto { justify-content: flex-end; padding-bottom: 10px; }
+
+/* ---------- Audio Enhancement ---------- */
+.yt-enhance { margin-bottom: 24px; }
+.yt-desc { font-size: 14px; line-height: 1.6; color: var(--ds-text-2); max-width: 720px; }
+.yt-reset { height: 32px; font-size: 12px; }
+
+.yt-fx-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 8px; }
+.yt-fx { display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid var(--ds-line); background: var(--ds-bg); }
+.yt-fx-head { display: flex; justify-content: space-between; align-items: baseline; }
+.yt-fx-head .sp-label { margin: 0; }
+.yt-fx-val { font-family: var(--ds-display); font-size: 24px; font-weight: 700; letter-spacing: -.02em; color: var(--gold); }
+.yt-fx-scale { display: flex; justify-content: space-between; font-family: var(--ds-mono); font-size: 11px; color: var(--ds-text-3); }
+
+.yt-range { width: 100%; accent-color: var(--gold); cursor: pointer; }
+
+.yt-script { display: flex; flex-direction: column; gap: 8px; }
+.yt-script .sp-output-head .sp-label { flex: 1; }
+.yt-script-code { height: 300px; white-space: pre; overflow: auto; tab-size: 4; }
+
+.yt-fx-tag { font-family: var(--ds-mono); font-size: 11px; color: var(--gold); }
+
+@media (max-width: 860px) {
+  .yt-fx-grid, .yt-roblox-grid { grid-template-columns: 1fr; }
+  .yt-grid { grid-template-columns: 1fr; }
+  .yt-links { min-height: 180px; }
+}

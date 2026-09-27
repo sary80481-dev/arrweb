@@ -1,0 +1,42 @@
+/* assets/css/pages/errors.css — halaman error (404) */
+.error-page {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 40px clamp(20px, 6vw, 96px);
+  background: var(--ds-bg);
+}
+.error-card { max-width: 720px; width: 100%; animation: errorIn .5s var(--ds-ease); }
+@keyframes errorIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+.error-code {
+  font-family: var(--ds-display);
+  font-size: clamp(96px, 18vw, 220px);
+  font-weight: 800;
+  line-height: .85;
+  letter-spacing: -.06em;
+  color: var(--ds-text);
+}
+.error-title { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--ds-line); font-family: var(--ds-display); font-size: clamp(22px, 3vw, 32px); font-weight: 700; letter-spacing: -.02em; color: var(--ds-text); }
+.error-desc { margin-top: 10px; max-width: 460px; color: var(--ds-text-2); font-size: 15px; line-height: 1.65; }
+
+.error-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.error-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 22px;
+  border: 1px solid var(--gold);
+  border-radius: var(--ds-radius-s);
+  background: var(--gold);
+  color: var(--on-accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--ds-fast) ease, border-color var(--ds-fast) ease, color var(--ds-fast) ease;
+}
+.error-btn:hover { background: var(--gold-bright); border-color: var(--gold-bright); }
+.error-btn-ghost { border-color: var(--ds-line-2); background: transparent; color: var(--ds-text); }
+.error-btn-ghost:hover { border-color: var(--ds-text); background: transparent; }

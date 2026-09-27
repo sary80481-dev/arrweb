@@ -1,0 +1,248 @@
+/* ============================================================
+   assets/css/base.css — komponen global
+   (modal plugin, toast, popup login guest, badge kuota, panel billboard)
+   ============================================================ */
+
+/* ---------- Tombol dasar ---------- */
+.ds-btn,
+.plugin-modal-btn,
+.guest-gate-btn,
+.bb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 42px;
+  padding: 0 18px;
+  border: 1px solid var(--ds-line-2);
+  border-radius: var(--ds-radius-s);
+  background: transparent;
+  color: var(--ds-text);
+  font-family: var(--ds-font);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--ds-fast) ease, border-color var(--ds-fast) ease, color var(--ds-fast) ease;
+}
+.ds-btn:hover, .plugin-modal-btn:hover, .guest-gate-btn:hover, .bb-btn:hover { border-color: var(--ds-text); }
+.plugin-modal-btn.primary, .bb-btn-primary, .ds-btn--accent {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--on-accent);
+}
+.plugin-modal-btn.primary:hover, .bb-btn-primary:hover, .ds-btn--accent:hover { background: var(--gold-bright); border-color: var(--gold-bright); }
+
+/* ---------- Overlay modal ---------- */
+.plugin-modal-overlay,
+.guest-gate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background: rgba(0, 0, 0, .72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.plugin-modal-overlay.show { display: flex; }
+.guest-gate-overlay { display: flex; opacity: 0; transition: opacity .25s ease; }
+.guest-gate-overlay.show { opacity: 1; }
+
+/* ---------- Modal plugin ---------- */
+.plugin-modal {
+  width: 100%;
+  max-width: 680px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ds-line-2);
+  border-radius: var(--ds-radius);
+  background: var(--ds-surface);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, .6);
+  overflow: hidden;
+  animation: ds-rise .35s var(--ds-ease);
+}
+@keyframes ds-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.plugin-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 28px 28px 20px; border-bottom: 1px solid var(--ds-line); }
+.plugin-modal-title-main { font-family: var(--ds-display); font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+.plugin-modal-title-sub { margin-top: 6px; color: var(--ds-text-2); font-size: 13px; }
+.plugin-modal-icon { display: none; }
+.plugin-modal-close,
+.guest-gate-close {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--ds-line-2);
+  border-radius: var(--ds-radius-s);
+  background: transparent;
+  color: var(--ds-text-2);
+  font-size: 16px;
+  cursor: pointer;
+}
+.plugin-modal-close:hover, .guest-gate-close:hover { color: var(--ds-text); border-color: var(--ds-text); }
+.plugin-modal-body { padding: 8px 28px 24px; overflow-y: auto; }
+
+.plugin-step { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--ds-line); }
+.plugin-step:last-of-type { border-bottom: 0; }
+.plugin-step-num { font-family: var(--ds-display); font-size: 28px; font-weight: 800; line-height: 1; color: var(--gold); letter-spacing: -.03em; }
+.plugin-step-title { margin-bottom: 6px; font-size: 14px; font-weight: 600; }
+.plugin-step-desc { color: var(--ds-text-2); font-size: 13px; line-height: 1.65; }
+.plugin-step-desc code, .plugin-callout code { padding: 1px 5px; border-radius: var(--ds-radius-s); background: var(--ds-hover); color: var(--ds-text); font-family: var(--ds-mono); font-size: 11.5px; }
+.plugin-step-desc kbd { padding: 1px 6px; border: 1px solid var(--ds-line-2); border-radius: var(--ds-radius-s); font-family: var(--ds-mono); font-size: 11px; }
+.plugin-install-list { margin: 10px 0 8px; padding-left: 18px; line-height: 1.8; }
+
+.plugin-path-box { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; padding: 8px 8px 8px 12px; border: 1px solid var(--ds-line); border-radius: var(--ds-radius-s); background: var(--ds-bg); }
+.plugin-path-box .path-text { font-family: var(--ds-mono); font-size: 12px; color: var(--ds-text); overflow-x: auto; white-space: nowrap; }
+.plugin-path-copy { height: 26px; padding: 0 10px; border: 1px solid var(--ds-line-2); border-radius: var(--ds-radius-s); background: transparent; color: var(--ds-text-2); font-size: 11px; cursor: pointer; }
+.plugin-path-copy:hover, .plugin-path-copy.copied { color: var(--ds-text); border-color: var(--ds-text); }
+
+.plugin-callout { display: flex; gap: 12px; margin-top: 16px; padding: 14px 16px; border-left: 2px solid var(--gold) !important; background: var(--ds-bg) !important; color: var(--ds-text-2); font-size: 13px; line-height: 1.6; }
+.plugin-callout + .plugin-callout { border-left-color: var(--ds-line-2) !important; }
+.plugin-callout strong { color: var(--ds-text); }
+.plugin-callout-icon { display: none; }
+.plugin-modal-foot { display: flex; justify-content: flex-end; gap: 10px; padding: 18px 28px; border-top: 1px solid var(--ds-line); }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 32px);
+  padding: 12px 16px;
+  border: 1px solid var(--ds-line-2);
+  border-radius: var(--ds-radius);
+  background: var(--ds-raised);
+  color: var(--ds-text);
+  font-size: 13px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity .25s ease, transform .35s var(--ds-ease);
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast-icon {
+  width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--ds-ok);
+  color: #06140d;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.toast.error .toast-icon { background: var(--ds-err); color: #fff; }
+.toast.warning .toast-icon { background: var(--ds-warn); color: #1b1100; }
+
+/* ---------- Popup login (kuota guest habis) ---------- */
+.guest-gate-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 32px 28px;
+  border: 1px solid var(--ds-line-2);
+  border-radius: var(--ds-radius);
+  background: var(--ds-surface);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, .6);
+  transform: translateY(12px);
+  transition: transform .35s var(--ds-ease);
+}
+.guest-gate-overlay.show .guest-gate-modal { transform: none; }
+.guest-gate-close { position: absolute; top: 16px; right: 16px; }
+.guest-gate-icon { display: none; }
+.guest-gate-title { font-family: var(--ds-display); font-size: 26px; font-weight: 800; letter-spacing: -.03em; }
+.guest-gate-sub { margin: 10px 0 24px; color: var(--ds-text-2); font-size: 14px; line-height: 1.6; }
+.guest-gate-actions { display: grid; gap: 10px; }
+.guest-gate-btn { width: 100%; height: 48px; justify-content: flex-start; padding: 0 16px; text-transform: none; letter-spacing: 0; font-size: 14px; }
+.guest-gate-btn--google { background: var(--ds-text); border-color: var(--ds-text); color: var(--ds-bg); }
+.guest-gate-btn--google:hover { background: #fff; }
+.guest-gate-btn--discord:hover { border-color: #5865f2; }
+.guest-gate-foot { margin-top: 20px; color: var(--ds-text-3); font-size: 12px; }
+.guest-gate-foot a { color: var(--ds-text-2); }
+
+/* ---------- Badge kuota guest (navbar) ---------- */
+.guest-quota-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--ds-line-2);
+  border-radius: var(--ds-radius-s);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  color: var(--ds-text-2);
+  white-space: nowrap;
+}
+.guest-quota-badge strong { color: var(--gold); font-weight: 600; }
+.guest-quota-icon { display: none; }
+.guest-quota-badge--empty strong { color: var(--ds-err); }
+
+/* ---------- Panel Billboard (tab Billboard) ---------- */
+.billboard-config {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 16px;
+  border-bottom: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  overflow-y: auto;
+  max-height: 60%;
+  flex-shrink: 0;
+}
+.billboard-config.hidden { display: none; }
+.bb-intro { grid-column: 1 / -1; color: var(--ds-text-2); font-size: 12px; line-height: 1.6; }
+.bb-intro strong { color: var(--ds-text); }
+.bb-intro-sub { margin-top: 4px; color: var(--ds-text-3); }
+.bb-intro-icon { display: none; }
+.bb-field { display: flex; flex-direction: column; gap: 6px; }
+.bb-field.full, .bb-preview, .bb-actions, .bb-status { grid-column: 1 / -1; }
+.bb-label { display: flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ds-text-3); }
+.bb-label .help {
+  width: 14px; height: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--ds-line-2); border-radius: 50%;
+  font-size: 9px; letter-spacing: 0; cursor: help;
+}
+.bb-field input, .bb-field select {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--ds-line-2);
+  border-radius: var(--ds-radius-s);
+  background: var(--ds-bg);
+  color: var(--ds-text);
+  font-family: inherit;
+  font-size: 12.5px;
+  outline: none;
+}
+.bb-field input:focus, .bb-field select:focus { border-color: var(--gold); }
+.bb-theme-swatches { display: flex; border: 1px solid var(--ds-line-2); border-radius: var(--ds-radius-s); overflow: hidden; width: fit-content; }
+.bb-theme-swatch { padding: 8px 14px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ds-text-2); cursor: pointer; }
+.bb-theme-swatch + .bb-theme-swatch { border-left: 1px solid var(--ds-line-2); }
+.bb-theme-swatch.active { background: var(--ds-text); color: var(--ds-bg); }
+.bb-preview { padding: 16px; border: 1px solid var(--ds-line); background: var(--ds-bg); }
+.bb-preview-label { margin-bottom: 12px; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ds-text-3); }
+.bb-visual { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px; font-family: 'Arial', sans-serif; text-shadow: 0 1px 2px #000; }
+.bb-badges { display: flex; gap: 4px; margin-bottom: 4px; }
+.bb-badge { font-size: 14px; }
+.bb-name { font-size: 18px; font-weight: 700; }
+.bb-role { font-size: 12px; }
+.bb-level { font-size: 12px; font-weight: 700; }
+.bb-actions { display: flex; gap: 8px; }
+.bb-btn { height: 36px; }
+.bb-status { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ds-text-3); }
+.bb-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ds-ok); }
+.btn-copy-active { border-color: var(--gold) !important; }
+
+@media (max-width: 560px) {
+  .plugin-modal-head, .plugin-modal-body, .plugin-modal-foot { padding-left: 20px; padding-right: 20px; }
+  .billboard-config { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,43 @@
+<style>
+  .qb { width: 640px; margin: 36px auto; padding: 24px; border-radius: 16px; font-family: Georgia, serif;
+        background: linear-gradient(180deg, #3f2a14, #2a1b0c); color: #f5e6c8; border: 3px solid #a16207; }
+  .qb-title { text-align: center; font-size: 28px; margin: 0 0 4px; color: #fcd34d; }
+  .qb-sub { text-align: center; font-size: 13px; color: #d6b98c; margin-bottom: 18px; font-style: italic; }
+  .qb-quest { display: flex; gap: 16px; padding: 16px; border-radius: 12px; background: rgba(0,0,0,.25);
+              border: 1px solid rgba(252, 211, 77, .3); margin-bottom: 12px; }
+  .qb-icon { width: 64px; height: 64px; flex: 0 0 64px; border-radius: 12px; background: #78350f; display: flex;
+             align-items: center; justify-content: center; font-size: 32px; }
+  .qb-body { flex: 1; }
+  .qb-name { font-size: 18px; font-weight: bold; color: #fde68a; }
+  .qb-desc { font-size: 13px; margin: 4px 0 8px; line-height: 1.4; }
+  .qb-reward { font-size: 12px; color: #86efac; font-family: 'Inter', sans-serif; font-weight: 700; }
+  .qb-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; }
+  .qb-accept { padding: 10px 22px; border-radius: 8px; border: 0; background: linear-gradient(180deg, #16a34a, #15803d);
+               color: #fff; font-weight: bold; cursor: pointer; }
+  .qb-decline { padding: 10px 22px; border-radius: 8px; border: 1px solid #b45309; background: transparent;
+                color: #fcd34d; cursor: pointer; }
+</style>
+<div class="qb">
+  <h2 class="qb-title">📜 Quest: Dragon of Ember Peak</h2>
+  <div class="qb-sub">Papan misi · Desa Oakvale</div>
+  <div class="qb-quest">
+    <div class="qb-icon">🐉</div>
+    <div class="qb-body">
+      <div class="qb-name">Kalahkan Naga Api</div>
+      <div class="qb-desc">Naga di puncak Ember Peak mengancam desa. Kalahkan dia dan bawa pulang <b>sisiknya</b>.</div>
+      <div class="qb-reward">Hadiah: 🪙 1,500 Coins · ⭐ 800 XP</div>
+    </div>
+  </div>
+  <div class="qb-quest">
+    <div class="qb-icon">🌿</div>
+    <div class="qb-body">
+      <div class="qb-name">Kumpulkan Herbal</div>
+      <div class="qb-desc">Tabib desa butuh 10 daun penyembuh dari hutan timur.</div>
+      <div class="qb-reward">Hadiah: 🪙 300 Coins · ⭐ 120 XP</div>
+    </div>
+  </div>
+  <div class="qb-actions">
+    <button class="qb-decline" id="decline-btn">Decline</button>
+    <button class="qb-accept" id="accept-btn">Accept Quest</button>
+  </div>
+</div>

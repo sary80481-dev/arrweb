@@ -1,0 +1,33 @@
+/* ============================================================
+   assets/css/loader.css — splash saat halaman pertama dimuat
+   ============================================================ */
+.arrr-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ds-bg);
+  transition: opacity .6s var(--ds-ease), visibility .6s;
+}
+.arrr-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.arrr-loader-inner { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.arrr-loader-line { display: none; }
+.arrr-loader-logo-wrap { width: 56px; height: 56px; animation: loader-in .8s var(--ds-ease) both; }
+.arrr-loader-logo { width: 100%; height: 100%; object-fit: contain; }
+.arrr-loader-brand {
+  font-family: var(--ds-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .4em;
+  color: var(--ds-text);
+  animation: loader-in .8s .1s var(--ds-ease) both;
+}
+.arrr-loader-brand span { color: var(--gold); }
+.arrr-loader-tagline { display: none; }
+.arrr-loader-progress { width: 160px; height: 1px; background: var(--ds-line-2); overflow: hidden; }
+.arrr-loader-progress-bar { width: 0; height: 100%; background: var(--gold); transition: width .2s linear; }
+.arrr-loader-percent { font-family: var(--ds-mono); font-size: 10px; color: var(--ds-text-3); letter-spacing: .1em; }
+@keyframes loader-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .arrr-loader * { animation: none !important; } }

@@ -1,0 +1,177 @@
+/* ============================================================
+   assets/css/theme.css — DESIGN TOKENS + tema aksen
+   ------------------------------------------------------------
+   Bahasa desain: editorial / automotive.
+   Netral hitam-putih, SATU aksen solid (tanpa glow), garis tipis,
+   sudut tajam, tipografi besar & rapat, label kecil uppercase.
+   Semua CSS lain memakai token di sini — jangan hardcode warna.
+   ============================================================ */
+
+:root {
+  /* Permukaan */
+  --ds-bg: #0a0a0a;
+  --ds-surface: #111111;
+  --ds-raised: #171717;
+  --ds-hover: #1d1d1d;
+  --ds-line: #242424;
+  --ds-line-2: #333333;
+
+  /* Teks */
+  --ds-text: #f2f2f2;
+  --ds-text-2: #a3a3a3;
+  --ds-text-3: #6b6b6b;
+
+  /* Status */
+  --ds-ok: #3ecf8e;
+  --ds-warn: #f5a524;
+  --ds-err: #f04438;
+
+  /* Bentuk */
+  --ds-radius-s: 2px;
+  --ds-radius: 4px;
+  --ds-radius-l: 8px;
+
+  /* Tipografi */
+  --ds-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ds-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --ds-mono: 'JetBrains Mono', ui-monospace, 'Consolas', monospace;
+
+  /* Gerak */
+  --ds-ease: cubic-bezier(.2, .7, .1, 1);
+  --ds-fast: .18s;
+  --ds-slow: .5s;
+}
+
+:root,
+html[data-theme="gold"] {
+  --gold: #d4af37;
+  --gold-bright: #f4d03f;
+  --gold-dim: #8a7328;
+  --gold-deep: #b8922c;
+  --accent-rgb: 212, 175, 55;
+  --accent-bright-rgb: 244, 208, 63;
+  --accent-dim-rgb: 138, 115, 40;
+  --on-accent: #0a0a0d;
+  --theme-name: "Gold";
+}
+
+/* Rosso Corsa — merah khas Ferrari */
+html[data-theme="rosso"] {
+  --gold: #da291c;
+  --gold-bright: #ff4d3d;
+  --gold-dim: #8e1b12;
+  --gold-deep: #b01f14;
+  --accent-rgb: 218, 41, 28;
+  --accent-bright-rgb: 255, 77, 61;
+  --accent-dim-rgb: 142, 27, 18;
+  --on-accent: #ffffff;
+  --theme-name: "Rosso";
+}
+
+html[data-theme="azure"] {
+  --gold: #3b82f6;
+  --gold-bright: #60a5fa;
+  --gold-dim: #1e40af;
+  --gold-deep: #2563eb;
+  --accent-rgb: 59, 130, 246;
+  --accent-bright-rgb: 96, 165, 250;
+  --accent-dim-rgb: 30, 64, 175;
+  --on-accent: #ffffff;
+  --theme-name: "Azure";
+}
+
+html[data-theme="emerald"] {
+  --gold: #10b981;
+  --gold-bright: #34d399;
+  --gold-dim: #065f46;
+  --gold-deep: #059669;
+  --accent-rgb: 16, 185, 129;
+  --accent-bright-rgb: 52, 211, 153;
+  --accent-dim-rgb: 6, 95, 70;
+  --on-accent: #04130d;
+  --theme-name: "Emerald";
+}
+
+/* Transisi halus saat ganti tema */
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: background-color .35s ease, border-color .35s ease, color .35s ease, box-shadow .35s ease !important;
+}
+
+/* ============================================================
+   THEME PICKER (popover)
+   ============================================================ */
+.theme-picker {
+  position: fixed;
+  z-index: 10050;
+  width: 240px;
+  padding: 16px;
+  border-radius: var(--ds-radius);
+  background: var(--ds-raised);
+  border: 1px solid var(--ds-line-2);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .5);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity var(--ds-fast) ease, transform var(--ds-fast) ease;
+  font-family: var(--ds-font);
+}
+.theme-picker.show { opacity: 1; transform: none; }
+.theme-picker-title {
+  margin: 0 0 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ds-text-3);
+}
+.theme-picker-grid { display: grid; grid-template-columns: 1fr; gap: 2px; }
+.theme-swatch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 38px;
+  padding: 0 10px;
+  border-radius: var(--ds-radius-s);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ds-text-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--ds-fast) ease, color var(--ds-fast) ease;
+}
+.theme-swatch:hover { background: var(--ds-hover); color: var(--ds-text); }
+.theme-swatch.active { border-color: var(--ds-line-2); color: var(--ds-text); }
+.theme-swatch-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+  flex: 0 0 12px;
+}
+
+/* Tombol palet di navbar */
+.theme-toggle-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ds-radius-s);
+  border: 1px solid var(--ds-line-2);
+  background: transparent;
+  color: var(--ds-text);
+  cursor: pointer;
+  transition: border-color var(--ds-fast) ease;
+}
+.theme-toggle-btn:hover { border-color: var(--ds-text); }
+.theme-toggle-btn .theme-toggle-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+}

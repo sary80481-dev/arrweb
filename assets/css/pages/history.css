@@ -1,0 +1,41 @@
+/* ============================================================
+   assets/css/pages/history.css — Riwayat Upload (pakai .sp-* dari spoofer.css)
+   ============================================================ */
+
+.page-sub a { color: var(--gold); }
+
+.hs-card { margin-bottom: 24px; }
+.hs-toolbar { display: flex; flex-wrap: wrap; gap: 8px; }
+.hs-search { flex: 1 1 260px; }
+.hs-filter { flex: 0 1 220px; width: auto; }
+
+.hs-table-wrap { max-height: 560px; }
+.hs-table th:first-child, .hs-table td:first-child { width: 36px; }
+.hs-table input[type="checkbox"] { accent-color: var(--gold); cursor: pointer; }
+.hs-table td { vertical-align: middle; }
+.hs-table tr.sel td { background: var(--ds-hover); }
+.hs-time { font-family: var(--ds-mono); font-size: 11px; color: var(--ds-text-3); white-space: nowrap; }
+.hs-name { color: var(--ds-text); font-weight: 500; word-break: break-word; }
+.hs-src { font-size: 12px; white-space: nowrap; }
+.hs-src a { color: var(--ds-text-2); text-decoration: none; }
+.hs-src a:hover { color: var(--gold); }
+.hs-src small { display: block; font-family: var(--ds-mono); font-size: 11px; color: var(--ds-text-3); }
+.hs-asset { font-family: var(--ds-mono); font-size: 12px; }
+.hs-asset a { color: var(--ds-text); text-decoration: none; }
+.hs-asset a:hover { color: var(--gold); }
+.hs-game { font-family: var(--ds-mono); font-size: 11px; color: var(--ds-ok); }
+.hs-game.none { color: var(--ds-text-3); }
+.hs-more { align-self: center; }
+
+.hs-actions { gap: 14px; }
+.hs-action-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+.hs-action-grid > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.hs-universe { flex: 0 1 150px !important; }
+.hs-grant { flex: 0 0 auto; padding: 0 18px; }
+.hs-danger { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--ds-line); }
+.hs-delete:hover:not(:disabled) { border-color: var(--ds-err); color: var(--ds-err); }
+
+@media (max-width: 860px) {
+  .hs-action-grid { grid-template-columns: 1fr; }
+  .hs-table th:nth-child(2), .hs-table td:nth-child(2) { display: none; }
+}

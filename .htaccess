@@ -1,0 +1,33 @@
+# ============================================================
+# ARRR Studio — .htaccess
+# ============================================================
+RewriteEngine On
+
+# Blokir akses ke app/ dan storage/
+RewriteRule ^(app|storage)/ - [F,L]
+
+# Jangan rewrite file/folder yang ada (assets, api, samples, dll)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Pretty URL: /docs → index.php?page=docs
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?page=$1 [L,QSA]
+
+# Fallback (kalo nggak match apapun)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L,QSA]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# File sensitif / khusus development
+<FilesMatch "^(\.env.*|server\.php)$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes

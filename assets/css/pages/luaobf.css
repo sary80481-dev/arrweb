@@ -1,0 +1,26 @@
+/* ============================================================
+   assets/css/pages/luaobf.css — Lua Obfuscator (pakai .sp-* dari spoofer.css)
+   ============================================================ */
+.lo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+.lo-pane { gap: 12px; }
+.lo-pane-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.lo-pane-head .sp-card-title { margin: 0; }
+.lo-code { height: 360px; font-family: var(--ds-mono); font-size: 12px; line-height: 1.55; white-space: pre; overflow: auto; tab-size: 4; resize: vertical; }
+.lo-out { background: var(--ds-bg); }
+.lo-controls { display: flex; align-items: center; gap: 12px; }
+.lo-controls .sp-label { margin: 0; }
+.lo-layers { width: auto; flex: 0 1 220px; }
+.lo-actions { flex-wrap: wrap; }
+.lo-note { color: var(--ds-text-2); }
+.lo-note:empty { display: none; }
+.lo-info { margin-bottom: 24px; }
+.lo-facts { display: flex; flex-direction: column; gap: 10px; margin: 8px 0 0; padding: 0; list-style: none; }
+.lo-facts li { position: relative; padding-left: 20px; color: var(--ds-text-2); line-height: 1.55; font-size: 14px; }
+.lo-facts li::before { content: ''; position: absolute; left: 3px; top: 8px; width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--gold); }
+.lo-facts li b { color: var(--ds-text); }
+.lo-facts code { font-family: var(--ds-mono); font-size: 12px; color: var(--ds-text); }
+
+@media (max-width: 860px) {
+  .lo-grid { grid-template-columns: 1fr; }
+  .lo-code { height: 240px; }
+}

@@ -1,0 +1,39 @@
+<style>
+  .lo { width: 700px; margin: 30px auto; padding: 22px; border-radius: 16px; font-family: 'Titillium Web', sans-serif;
+        background: #0a0f1a; color: #e5e7eb; border: 1px solid #1f2937; }
+  .lo-title { font-size: 24px; font-weight: 700; margin: 0 0 16px; }
+  .lo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .lo-card { padding: 14px; border-radius: 14px; background: linear-gradient(180deg, #111827, #0b1220); border: 1px solid #1f2937; }
+  .lo-card.equipped { border-color: #22d3ee; background: linear-gradient(180deg, #083344, #0b1220); }
+  .lo-art { height: 90px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 46px;
+            background: rgba(255,255,255,.04); }
+  .lo-name { margin-top: 10px; font-weight: 700; font-size: 15px; }
+  .lo-rarity { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .r-epic { color: #c084fc; } .r-rare { color: #60a5fa; } .r-leg { color: #fbbf24; }
+  .lo-btn { width: 100%; margin-top: 10px; padding: 9px; border-radius: 8px; border: 0; font-weight: 700; cursor: pointer;
+            background: #1f2937; color: #e5e7eb; }
+  .lo-card.equipped .lo-btn { background: #0e7490; color: #fff; }
+</style>
+<div class="lo">
+  <h2 class="lo-title">🎒 Loadout</h2>
+  <div class="lo-grid">
+    <div class="lo-card equipped">
+      <div class="lo-art">🔫</div>
+      <div class="lo-name">Plasma Rifle</div>
+      <div class="lo-rarity r-epic">Epic</div>
+      <button class="lo-btn" id="plasma-unequip">Unequip</button>
+    </div>
+    <div class="lo-card">
+      <div class="lo-art">🏹</div>
+      <div class="lo-name">Storm Bow</div>
+      <div class="lo-rarity r-rare">Rare</div>
+      <button class="lo-btn" id="bow-equip">Equip</button>
+    </div>
+    <div class="lo-card">
+      <div class="lo-art">🪓</div>
+      <div class="lo-name">Titan Axe</div>
+      <div class="lo-rarity r-leg">Legendary</div>
+      <button class="lo-btn" id="axe-equip">Equip</button>
+    </div>
+  </div>
+</div>

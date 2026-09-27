@@ -1,0 +1,35 @@
+<style>
+  .lb { width: 520px; margin: 30px auto; padding: 22px; border-radius: 18px; font-family: 'Roboto', sans-serif;
+        background: linear-gradient(180deg, #111827, #0b1020); color: #e5e7eb; border: 1px solid #374151; }
+  .lb-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .lb-title { font-size: 22px; font-weight: 800; margin: 0; }
+  .lb-tabs { display: flex; gap: 6px; }
+  .lb-tab { padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #1f2937; color: #9ca3af; }
+  .lb-tab.active { background: #f59e0b; color: #111827; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #6b7280; padding: 8px 10px; }
+  td { padding: 11px 10px; border-top: 1px solid #1f2937; font-size: 14px; }
+  .rank { width: 40px; font-weight: 800; }
+  .gold td { background: rgba(245, 158, 11, .10); }
+  .gold .rank { color: #fbbf24; }
+  .silver .rank { color: #d1d5db; }
+  .bronze .rank { color: #d97706; }
+  .score { text-align: right; font-weight: 700; color: #fcd34d; }
+  .me td { background: rgba(59, 130, 246, .15); }
+</style>
+<div class="lb">
+  <div class="lb-head">
+    <h2 class="lb-title">🏆 Leaderboard</h2>
+    <div class="lb-tabs"><span class="lb-tab active">Weekly</span><span class="lb-tab">All Time</span></div>
+  </div>
+  <table>
+    <tr><th>#</th><th>Player</th><th>Level</th><th class="score">Points</th></tr>
+    <tr class="gold"><td class="rank">1</td><td>👑 NightWolf</td><td>87</td><td class="score">98,450</td></tr>
+    <tr class="silver"><td class="rank">2</td><td>SkyBlade</td><td>81</td><td class="score">91,200</td></tr>
+    <tr class="bronze"><td class="rank">3</td><td>PixelQueen</td><td>79</td><td class="score">88,015</td></tr>
+    <tr><td class="rank">4</td><td>RobloxPro_22</td><td>70</td><td class="score">74,300</td></tr>
+    <tr><td class="rank">5</td><td>Dino_Rider</td><td>66</td><td class="score">70,880</td></tr>
+    <tr><td class="rank">6</td><td>CaptainNoob</td><td>61</td><td class="score">65,120</td></tr>
+    <tr class="me"><td class="rank">24</td><td><b>You</b></td><td>34</td><td class="score">31,440</td></tr>
+  </table>
+</div>

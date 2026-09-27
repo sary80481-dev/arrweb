@@ -1,0 +1,52 @@
+<style>
+  .hud { position: relative; width: 800px; height: 600px; font-family: 'Montserrat', sans-serif; color: #fff;
+         background: linear-gradient(180deg, #0ea5e9 0%, #38bdf8 45%, #86efac 46%, #22c55e 100%); }
+  .hud-top { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; }
+  .hud-player { display: flex; gap: 10px; align-items: center; padding: 10px 14px; border-radius: 14px;
+                background: rgba(15, 23, 42, .75); border: 1px solid rgba(255,255,255,.15); }
+  .hud-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #db2777);
+                display: flex; align-items: center; justify-content: center; font-size: 22px; }
+  .hud-name { font-weight: 800; font-size: 15px; }
+  .hud-level { font-size: 11px; color: #fde68a; font-weight: 700; }
+  .hud-bars { width: 190px; }
+  .hud-bar { height: 10px; border-radius: 6px; background: rgba(255,255,255,.15); overflow: hidden; margin-top: 5px; }
+  .hud-hp { width: 78%; height: 100%; background: linear-gradient(90deg, #ef4444, #f87171); }
+  .hud-xp { width: 45%; height: 100%; background: linear-gradient(90deg, #8b5cf6, #c084fc); }
+  .hud-money { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .hud-coin { padding: 8px 16px; border-radius: 999px; background: rgba(15, 23, 42, .75); font-weight: 800; font-size: 15px;
+              border: 1px solid #facc15; color: #fde047; }
+  .hud-gem { padding: 8px 16px; border-radius: 999px; background: rgba(15, 23, 42, .75); font-weight: 800; font-size: 15px;
+             border: 1px solid #22d3ee; color: #67e8f9; }
+  .hud-actions { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+  .hud-slot { width: 58px; height: 58px; border-radius: 12px; background: rgba(15, 23, 42, .8); border: 2px solid #475569;
+              display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .hud-slot.active { border-color: #facc15; }
+  .hud-quest { position: absolute; top: 110px; right: 16px; width: 220px; padding: 12px; border-radius: 12px;
+               background: rgba(15, 23, 42, .7); font-size: 12px; }
+  .hud-quest b { color: #fde68a; }
+</style>
+<div class="hud">
+  <div class="hud-top">
+    <div class="hud-player">
+      <div class="hud-avatar">🦊</div>
+      <div class="hud-bars">
+        <div class="hud-name">FoxHunter</div>
+        <div class="hud-level">LV. 24 · Ranger</div>
+        <div class="hud-bar"><div class="hud-hp"></div></div>
+        <div class="hud-bar"><div class="hud-xp"></div></div>
+      </div>
+    </div>
+    <div class="hud-money">
+      <div class="hud-coin">🪙 8,420 Coins</div>
+      <div class="hud-gem">💎 135 Gems</div>
+    </div>
+  </div>
+  <div class="hud-quest"><b>📜 Quest</b><br>Kalahkan 5 Slime (3/5)</div>
+  <div class="hud-actions">
+    <div class="hud-slot active">🗡️</div>
+    <div class="hud-slot">🏹</div>
+    <div class="hud-slot">🧪</div>
+    <div class="hud-slot">🛡️</div>
+    <div class="hud-slot">✨</div>
+  </div>
+</div>

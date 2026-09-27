@@ -1,0 +1,44 @@
+<style>
+  .dr { width: 720px; margin: 40px auto; padding: 28px; border-radius: 20px; font-family: 'Poppins', sans-serif;
+        background: linear-gradient(160deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%); color: #f5f3ff;
+        border: 1px solid rgba(196, 181, 253, .35); }
+  .dr-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+  .dr-title { font-size: 26px; font-weight: 800; margin: 0; }
+  .dr-sub { font-size: 13px; color: #c4b5fd; margin-top: 4px; }
+  .dr-streak { padding: 8px 14px; border-radius: 999px; background: rgba(251, 191, 36, .15);
+               border: 1px solid #fbbf24; color: #fde68a; font-weight: 700; font-size: 13px; }
+  .dr-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .dr-day { padding: 14px 6px; border-radius: 14px; text-align: center; background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12); }
+  .dr-day.done { background: rgba(34, 197, 94, .18); border-color: #22c55e; }
+  .dr-day.today { background: linear-gradient(180deg, #f59e0b, #d97706); border-color: #fde68a; color: #1c1917; }
+  .dr-day-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: .8; }
+  .dr-icon { font-size: 28px; margin: 8px 0; }
+  .dr-amount { font-size: 14px; font-weight: 800; }
+  .dr-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
+  .dr-note { font-size: 12px; color: #a5b4fc; }
+  .dr-claim { padding: 14px 36px; border-radius: 12px; border: 0; cursor: pointer; font-size: 16px; font-weight: 800;
+              background: linear-gradient(90deg, #22c55e, #16a34a); color: #fff; }
+</style>
+<div class="dr">
+  <div class="dr-head">
+    <div>
+      <h2 class="dr-title">🎁 Daily Reward</h2>
+      <div class="dr-sub">Login tiap hari untuk hadiah yang makin besar</div>
+    </div>
+    <div class="dr-streak">🔥 Streak 3 hari</div>
+  </div>
+  <div class="dr-days">
+    <div class="dr-day done"><div class="dr-day-label">Day 1</div><div class="dr-icon">🪙</div><div class="dr-amount">50</div></div>
+    <div class="dr-day done"><div class="dr-day-label">Day 2</div><div class="dr-icon">🪙</div><div class="dr-amount">75</div></div>
+    <div class="dr-day done"><div class="dr-day-label">Day 3</div><div class="dr-icon">💎</div><div class="dr-amount">5</div></div>
+    <div class="dr-day today"><div class="dr-day-label">Day 4</div><div class="dr-icon">🪙</div><div class="dr-amount">150</div></div>
+    <div class="dr-day"><div class="dr-day-label">Day 5</div><div class="dr-icon">🪙</div><div class="dr-amount">200</div></div>
+    <div class="dr-day"><div class="dr-day-label">Day 6</div><div class="dr-icon">💎</div><div class="dr-amount">15</div></div>
+    <div class="dr-day"><div class="dr-day-label">Day 7</div><div class="dr-icon">👑</div><div class="dr-amount">Epic</div></div>
+  </div>
+  <div class="dr-foot">
+    <div class="dr-note">Reset dalam 12j 30m · Jangan putus streak!</div>
+    <button class="dr-claim" id="claim-btn">Claim Reward</button>
+  </div>
+</div>

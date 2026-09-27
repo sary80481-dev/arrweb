@@ -1,0 +1,21 @@
+<style>
+  .pm-bg { position: relative; width: 800px; height: 600px; background: rgba(2, 6, 23, .85); font-family: 'Inter', sans-serif; }
+  .pm { position: absolute; top: 50%; left: 50%; width: 320px; transform: translate(-50%, -50%); padding: 26px;
+        border-radius: 20px; background: linear-gradient(180deg, #1e293b, #0f172a); border: 1px solid #334155; color: #fff; }
+  .pm-title { margin: 0 0 4px; text-align: center; font-size: 28px; font-weight: 900; letter-spacing: 4px; }
+  .pm-sub { text-align: center; font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+  .pm-btn { display: block; width: 100%; margin-bottom: 10px; padding: 13px; border-radius: 12px; border: 1px solid #334155;
+            background: #1e293b; color: #e2e8f0; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; }
+  .pm-btn.primary { background: linear-gradient(90deg, #06b6d4, #3b82f6); border: 0; color: #fff; }
+  .pm-btn.danger { background: transparent; border-color: #7f1d1d; color: #fca5a5; }
+</style>
+<div class="pm-bg">
+  <div class="pm">
+    <h2 class="pm-title">PAUSED</h2>
+    <div class="pm-sub">Server: Asia #4 · 12 pemain</div>
+    <button class="pm-btn primary" id="resume-btn">▶ Resume</button>
+    <button class="pm-btn" id="settings-toggle">⚙️ Settings</button>
+    <button class="pm-btn" id="help-btn">❓ How to Play</button>
+    <button class="pm-btn danger" id="leave-btn">🚪 Leave Game</button>
+  </div>
+</div>

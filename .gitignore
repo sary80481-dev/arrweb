@@ -1,0 +1,7 @@
+# Kredensial lokal
+.env
+
+# Data runtime
+storage/*
+!storage/.gitkeep
+!storage/.htaccess

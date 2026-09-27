@@ -1,0 +1,43 @@
+<style>
+  .bp { width: 760px; margin: 30px auto; padding: 22px; border-radius: 18px; font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(120deg, #0c0a09, #292524 60%, #44403c); color: #fafaf9; border: 1px solid #57534e; }
+  .bp-head { display: flex; justify-content: space-between; align-items: center; }
+  .bp-title { margin: 0; font-size: 24px; font-weight: 900; }
+  .bp-season { font-size: 12px; color: #fbbf24; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .bp-tier { font-size: 13px; color: #d6d3d1; }
+  .bp-progress { height: 12px; margin: 14px 0 18px; border-radius: 8px; background: #1c1917; overflow: hidden; }
+  .bp-fill { width: 62%; height: 100%; background: linear-gradient(90deg, #f59e0b, #fde047); }
+  .bp-track { display: flex; gap: 10px; }
+  .bp-reward { flex: 1; padding: 12px 8px; border-radius: 12px; text-align: center; background: #1c1917; border: 1px solid #44403c; }
+  .bp-reward.unlocked { border-color: #f59e0b; }
+  .bp-reward.premium { background: linear-gradient(180deg, #422006, #1c1917); }
+  .bp-lv { font-size: 11px; color: #a8a29e; font-weight: 700; }
+  .bp-icon { font-size: 30px; margin: 6px 0; }
+  .bp-amt { font-size: 13px; font-weight: 800; }
+  .bp-foot { display: flex; justify-content: space-between; margin-top: 18px; }
+  .bp-claim { padding: 12px 26px; border-radius: 10px; border: 0; font-weight: 800; cursor: pointer;
+              background: linear-gradient(90deg, #22c55e, #15803d); color: #fff; }
+  .bp-buy { padding: 12px 26px; border-radius: 10px; border: 0; font-weight: 800; cursor: pointer;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1c1917; }
+</style>
+<div class="bp">
+  <div class="bp-head">
+    <div>
+      <div class="bp-season">Season 3 · Neon Nights</div>
+      <h2 class="bp-title">⚡ Battle Pass</h2>
+    </div>
+    <div class="bp-tier">Tier <b>12</b> / 50 · berakhir 18 hari</div>
+  </div>
+  <div class="bp-progress"><div class="bp-fill"></div></div>
+  <div class="bp-track">
+    <div class="bp-reward unlocked"><div class="bp-lv">Tier 10</div><div class="bp-icon">🪙</div><div class="bp-amt">500</div></div>
+    <div class="bp-reward unlocked"><div class="bp-lv">Tier 11</div><div class="bp-icon">🎨</div><div class="bp-amt">Skin</div></div>
+    <div class="bp-reward unlocked premium"><div class="bp-lv">Tier 12</div><div class="bp-icon">💎</div><div class="bp-amt">50</div></div>
+    <div class="bp-reward"><div class="bp-lv">Tier 13</div><div class="bp-icon">🐾</div><div class="bp-amt">Pet</div></div>
+    <div class="bp-reward premium"><div class="bp-lv">Tier 14</div><div class="bp-icon">👑</div><div class="bp-amt">Crown</div></div>
+  </div>
+  <div class="bp-foot">
+    <button class="bp-buy" id="pass-buy">Buy Premium · 💎 950</button>
+    <button class="bp-claim" id="pass-claim">Claim All</button>
+  </div>
+</div>
