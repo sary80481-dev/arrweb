@@ -365,9 +365,25 @@ class YoutubeMp3Service
     // PROSES yt-dlp
     // ============================================================
 
+    // private function run(array $args, int $timeout): string
+    // {
+    //     return $this->exec(array_merge([$this->ytdlp, '--ignore-config', '--no-cache-dir'], $args), $timeout, 'yt-dlp');
+    // }
     private function run(array $args, int $timeout): string
     {
-        return $this->exec(array_merge([$this->ytdlp, '--ignore-config', '--no-cache-dir'], $args), $timeout, 'yt-dlp');
+        $base = [
+            $this->ytdlp,
+            '--ignore-config',
+            '--no-cache-dir',
+            '--extractor-args',
+            'youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416',
+        ];
+
+        return $this->exec(
+            array_merge($base, $args),
+            $timeout,
+            'yt-dlp'
+        );
     }
 
     /** Jalankan proses (lewat ProcessRunner). Balas stdout, lempar pesan ramah kalau gagal. */
