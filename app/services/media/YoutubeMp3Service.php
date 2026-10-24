@@ -403,7 +403,7 @@ class YoutubeMp3Service
             '--ignore-config',
             '--no-cache-dir',
             '--extractor-args',
-            'youtube:player-client=web,ios;youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416',
+            'youtube:player-client=android,web',
         ];
 
         return $this->exec(
