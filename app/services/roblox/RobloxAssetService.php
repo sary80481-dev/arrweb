@@ -265,7 +265,7 @@ class RobloxAssetService
                 'subjectType' => $universeId === null ? 'All' : 'Universe',
                 'subjectId'   => $universeId,   // wajib kosong untuk All
                 'action'      => 'Use',
-                'requests'    => array_map(fn($id) => ['assetId' => (int)$id, 'grantToDependencies' => true], $chunk),
+                'requests'    => array_map(fn($id) => $universeId === null ? ['assetId' => (int)$id] : ['assetId' => (int)$id, 'grantToDependencies' => true], $chunk),
             ]);
             $res  = $this->request('PATCH', self::PERMISSIONS_URL, [
                 'x-api-key: ' . $this->apiKey,
