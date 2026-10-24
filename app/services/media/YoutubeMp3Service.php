@@ -173,7 +173,7 @@ class YoutubeMp3Service
             '--no-mtime',
             '--restrict-filenames',
             '--match-filter', '!is_live & duration <=? ' . $this->maxDuration,
-            '-f', 'bestaudio/best',
+            '-f', 'ba/b/best',
             '-x', '--audio-format', 'mp3', '--audio-quality', $bitrate . 'K',
             '--embed-metadata',
             '--print-to-file', "after_move:%(title)s\t%(duration)s", self::outtmplPath($dir . '/info.txt'),
@@ -414,6 +414,7 @@ class YoutubeMp3Service
             'ffmpeg not found'             => 'ffmpeg belum terpasang — klik "Install otomatis" di panel Tools',
             'ffprobe not found'            => 'ffprobe belum terpasang — klik "Install otomatis" di panel Tools',
             'Sign in to confirm you'       => 'YouTube minta verifikasi bot — coba lagi nanti / update yt-dlp',
+            'Requested format is not available' => 'Format audio tidak tersedia untuk video ini',
             'HTTP Error 429'               => 'Terlalu banyak request ke YouTube, coba lagi nanti',
         ];
         foreach ($map as $needle => $msg) {
