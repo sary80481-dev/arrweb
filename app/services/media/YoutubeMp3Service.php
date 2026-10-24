@@ -173,7 +173,6 @@ class YoutubeMp3Service
             '--no-mtime',
             '--restrict-filenames',
             '--match-filter', '!is_live & duration <=? ' . $this->maxDuration,
-            '-f', 'ba/b/best',
             '-x', '--audio-format', 'mp3', '--audio-quality', $bitrate . 'K',
             '--embed-metadata',
             '--print-to-file', "after_move:%(title)s\t%(duration)s", self::outtmplPath($dir . '/info.txt'),
