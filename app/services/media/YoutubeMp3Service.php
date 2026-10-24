@@ -402,8 +402,9 @@ class YoutubeMp3Service
             $this->ytdlp,
             '--ignore-config',
             '--no-cache-dir',
+            '--geo-bypass',
             '--extractor-args',
-            'youtube:player-client=android,web',
+            'youtube:player-client=tv,android,web',
         ];
 
         return $this->exec(
