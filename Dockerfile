@@ -4,12 +4,15 @@ RUN apt-get update && apt-get install -y \
     ffmpeg \
     python3 \
     python3-pip \
-    nodejs \
-    npm \
     ca-certificates \
     curl \
     unzip \
     git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js 22 (required for bgutil-ytdlp-pot-provider server)
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 # yt-dlp

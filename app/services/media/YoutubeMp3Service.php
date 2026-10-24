@@ -376,7 +376,7 @@ class YoutubeMp3Service
             '--ignore-config',
             '--no-cache-dir',
             '--extractor-args',
-            'youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416',
+            'youtube:player-client=mweb,web;youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416',
         ];
 
         return $this->exec(
