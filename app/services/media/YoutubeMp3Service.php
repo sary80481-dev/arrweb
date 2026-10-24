@@ -166,14 +166,13 @@ class YoutubeMp3Service
             throw new RuntimeException('Gagal membuat folder sementara di storage/');
         }
 
-        $args = [
+        $commonArgs = [
             '--no-playlist',
             '--no-progress',
             '--no-warnings',
             '--no-mtime',
             '--restrict-filenames',
             '--match-filter', '!is_live & duration <=? ' . $this->maxDuration,
-            '-f', 'bestaudio/best',
             '-x', '--audio-format', 'mp3', '--audio-quality', $bitrate . 'K',
             '--embed-metadata',
             '--print-to-file', "after_move:%(title)s\t%(duration)s", self::outtmplPath($dir . '/info.txt'),
@@ -181,15 +180,29 @@ class YoutubeMp3Service
             '-o', 'audio.%(ext)s',
         ];
         if ($this->ffmpegLocation !== null) {
-            array_push($args, '--ffmpeg-location', $this->ffmpegLocation);
+            array_push($commonArgs, '--ffmpeg-location', $this->ffmpegLocation);
         }
-        $args[] = 'https://www.youtube.com/watch?v=' . $videoId;
+        $url = 'https://www.youtube.com/watch?v=' . $videoId;
+
+        $args = array_merge(['-f', 'bestaudio/best'], $commonArgs);
+        $args[] = $url;
 
         try {
             $this->run($args, $this->timeout);
         } catch (Throwable $e) {
-            self::removeDir($dir);
-            throw $e;
+            if (str_contains($e->getMessage(), 'Requested format is not available') || str_contains($e->getMessage(), 'format')) {
+                // Fallback: coba tanpa -f (biarkan yt-dlp pilih format terbaik yang tersedia)
+                $fallbackArgs = array_merge($commonArgs, [$url]);
+                try {
+                    $this->run($fallbackArgs, $this->timeout);
+                } catch (Throwable $e2) {
+                    self::removeDir($dir);
+                    throw $e2;
+                }
+            } else {
+                self::removeDir($dir);
+                throw $e;
+            }
         }
 
         $file = $dir . '/audio.mp3';
