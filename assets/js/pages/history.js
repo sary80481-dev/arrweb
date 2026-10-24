@@ -280,7 +280,7 @@
     if (!ids.length) return showToast('Tidak ada aset untuk dijadikan publik', 'warning');
     if (!apiKey) { $('hsApiKey').focus(); return showToast('Isi API key Roblox dulu', 'error'); }
     if (typeof window.ArrrPublic !== 'function') return showToast('Modul Auto Spoof belum termuat', 'error');
-    if (!confirm(`Jadikan ${ids.length} aset PUBLIK? Siapa saja bisa memakai aset ini di game mereka.\n\n(Audio tidak bisa — hanya gambar / decal / mesh.)`)) return;
+    if (!confirm(`Jadikan ${ids.length} aset PUBLIK? Siapa saja bisa memakai aset ini di semua place tanpa Universe ID.`)) return;
 
     busy = true;
     render();

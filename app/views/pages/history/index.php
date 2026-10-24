@@ -87,10 +87,10 @@ $isLoggedIn = Auth::check();
           </div>
           <div class="sp-row">
             <button type="button" class="sp-btn-ghost" id="hsPublic"
-                    title="Siapa saja bisa pakai. Hanya gambar / decal / mesh — audio tidak bisa lewat API">Jadikan publik (gambar)</button>
+                    title="Siapa saja bisa pakai di semua place tanpa Universe ID">Jadikan publik (Semua Place)</button>
           </div>
           <p class="sp-hint">API key &amp; Universe ID diambil dari setting Auto Spoof kalau sudah disimpan.
-            Universe ID: Creator Dashboard → Creations → ⋯ di game → Copy Universe ID. Audio tidak bisa dijadikan publik lewat API.</p>
+            Universe ID: Creator Dashboard → Creations → ⋯ di game → Copy Universe ID. Tombol "Jadikan publik" memberikan akses ke semua place secara publik tanpa perlu Universe ID.</p>
         </div>
       </div>
 

@@ -14,9 +14,18 @@ class Auth
             return;
         }
 
+        $sessionDir = STORAGE_PATH . '/sessions';
+        if (!is_dir($sessionDir)) {
+            @mkdir($sessionDir, 0775, true);
+        }
+        if (is_dir($sessionDir) && is_writable($sessionDir)) {
+            session_save_path($sessionDir);
+        }
+        session_name('ARRR_SESSION');
+
         if (!headers_sent()) {
             session_set_cookie_params([
-                'lifetime' => 0,
+                'lifetime' => 60 * 60 * 24 * 30, // 30 hari agar tidak logout sendiri
                 'path'     => '/',
                 'domain'   => '',
                 'secure'   => false, // true kalau sudah HTTPS

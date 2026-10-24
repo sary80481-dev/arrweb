@@ -145,8 +145,7 @@ $isLoggedIn = Auth::check();
       </div>
       <p class="sp-grant-desc">
         <b>Izinkan ke game</b>: aset bisa dipakai di satu game (Universe ID). <b>Jadikan publik</b>: bisa dipakai
-        siapa saja — hanya untuk gambar / decal / mesh. Audio tidak bisa dijadikan publik lewat API; untuk audio pakai
-        <i>Distribute on Creator Store</i> di Creator Dashboard (butuh verifikasi ID).
+        siapa saja di semua place tanpa perlu mengisi Universe ID (berlaku untuk gambar, decal, mesh, dan audio).
         Isi <b>Universe ID</b> di card 01 (Creator Dashboard → Creations → ⋯ di game → <i>Copy Universe ID</i> — bukan
         angka di link game). Aset &amp; game harus milik akun / grup yang sama dengan API key, dan API key butuh scope
         <code>asset-permissions:write</code>.
@@ -156,7 +155,7 @@ $isLoggedIn = Auth::check();
       <div class="sp-output-head">
         <button type="button" class="sp-start sp-grant-btn" id="spGrant" <?= $isLoggedIn ? "" : "disabled" ?>>Izinkan semua ke game</button>
         <button type="button" class="sp-btn-ghost" id="spPublic" <?= $isLoggedIn ? "" : "disabled" ?>
-                title="Siapa saja bisa pakai. Hanya gambar / decal / mesh — audio tidak bisa lewat API">Jadikan publik (gambar)</button>
+                title="Siapa saja bisa pakai di semua place tanpa Universe ID">Jadikan publik (Semua Place)</button>
         <button type="button" class="sp-btn-ghost" id="spGrantFill">Pakai hasil di atas</button>
       </div>
       <div class="sp-check-result" id="spGrantResult" hidden></div>
