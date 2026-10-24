@@ -184,25 +184,39 @@ class YoutubeMp3Service
         }
         $url = 'https://www.youtube.com/watch?v=' . $videoId;
 
-        $args = array_merge(['-f', 'bestaudio/best'], $commonArgs);
-        $args[] = $url;
+        $attempts = [
+            array_merge(['-f', 'bestaudio/best'], $commonArgs),
+            array_merge(['-f', 'ba/b'], $commonArgs),
+            $commonArgs,
+        ];
 
-        try {
-            $this->run($args, $this->timeout);
-        } catch (Throwable $e) {
-            if (str_contains($e->getMessage(), 'Requested format is not available') || str_contains($e->getMessage(), 'format')) {
-                // Fallback: coba tanpa -f (biarkan yt-dlp pilih format terbaik yang tersedia)
-                $fallbackArgs = array_merge($commonArgs, [$url]);
-                try {
-                    $this->run($fallbackArgs, $this->timeout);
-                } catch (Throwable $e2) {
-                    self::removeDir($dir);
-                    throw $e2;
+        $success = false;
+        $lastException = null;
+
+        foreach ($attempts as $i => $args) {
+            $tryArgs = array_merge($args, [$url]);
+            try {
+                $this->run($tryArgs, $this->timeout);
+                $success = true;
+                break;
+            } catch (Throwable $e) {
+                $lastException = $e;
+                if ($i === count($attempts) - 1 && (str_contains($e->getMessage(), 'format') || str_contains($e->getMessage(), 'Requested format') || str_contains($e->getMessage(), 'Sign in') || str_contains($e->getMessage(), 'bot'))) {
+                    try {
+                        MediaTools::installYtdlp();
+                        $this->run($tryArgs, $this->timeout);
+                        $success = true;
+                        break;
+                    } catch (Throwable $eUpdate) {
+                        $lastException = $eUpdate;
+                    }
                 }
-            } else {
-                self::removeDir($dir);
-                throw $e;
             }
+        }
+
+        if (!$success) {
+            self::removeDir($dir);
+            throw $lastException ?? new RuntimeException('Konversi gagal');
         }
 
         $file = $dir . '/audio.mp3';
