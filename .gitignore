@@ -1,7 +1,11 @@
 # Kredensial lokal
 .env
 
-# Data runtime
-storage/*
-!storage/.gitkeep
-!storage/.htaccess
+# Data runtime / cache sementara
+storage/ytmp3/*
+storage/bin/*
+storage/sessions/*
+storage/*.download
+storage/*.zip
+storage/*.tmp
+
